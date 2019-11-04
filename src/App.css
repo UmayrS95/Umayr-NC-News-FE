@@ -1,22 +1,73 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+	height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #09d3ac;
+	color: #09d3ac;
+}
+
+@media (max-width: 500px) {
+	.App {
+		display: grid;
+		grid-template-areas: 'Header' 'Navbar' 'Articles' 'SingleArticle';
+		grid-gap: 0.7rem;
+	}
+
+	.Header {
+		grid-area: Header;
+		border: 1px solid red;
+		text-align: left;
+	}
+
+	.Header h1 {
+		margin-left: 8px;
+	}
+
+	.Articles {
+		grid-area: Articles;
+		border: solid 1px red;
+	}
+
+	.Articles ul li {
+		list-style-type: none;
+		border: solid 1px blue;
+		margin: 8px;
+	}
+
+	.Articles ul {
+		padding: 8px;
+	}
+
+	.Navbar {
+		grid-area: Navbar;
+		border: solid 1px green;
+	}
+
+	.Navbar ul {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		margin: 0;
+		padding: 0;
+	}
+
+	.Navbar ul li {
+		list-style-type: none;
+		margin-left: 16px;
+	}
 }

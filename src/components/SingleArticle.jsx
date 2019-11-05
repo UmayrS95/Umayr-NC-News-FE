@@ -20,8 +20,7 @@ class SingleArticle extends Component {
 	componentDidMount () {
 		this.getSingleArticle(this.props.article_id)
 			.then(({ title, body, votes, topic, author, created_at, comment_count }) => {
-				const date = dateFormat(created_at);
-				this.setState({ title, body, votes, topic, author, created_at: date, comment_count, isLoading: false });
+				this.setState({ title, body, votes, topic, author, created_at, comment_count, isLoading: false });
 			})
 			.then(() => {
 				this.getArticleComments(this.props.article_id).then((comments) => {
@@ -38,24 +37,19 @@ class SingleArticle extends Component {
 
 	getArticleComments (article_id) {
 		return api.fetchArticleComments(article_id);
-		// .then((comments) => {
-		// 	this.setState(currentState => {
-		// 		return {...currentState, comments}
-		// 	})
-		// });
 	}
 
 	render () {
+		const date = dateFormat(this.state.created_at);
 		return (
 			<div className="SingleArticle">
 				<div>
 					<h1>{this.state.title}</h1>
 					<h4>Written by: {this.state.author}</h4>
-					<h4>Posted: {this.state.created_at}</h4>
+					<h4>Posted: {date}</h4>
 					<p>{this.state.body}</p>
-					{/* <button onClick={() => {this.getArticleComments(this.props.article_id)}}>View Comments</button> */}
 				</div>
-				<h4>Comments</h4>
+				<h4 id="comment-title">Comments</h4>
 				<ul>
 					{this.state.comments.length > 0 &&
 						this.state.comments.map((comment) => {

@@ -16,5 +16,6 @@
 		list-style-type: none;
 		margin-left: 16px;
 		margin-right: 16px;
+		cursor: pointer;
 	}
 }

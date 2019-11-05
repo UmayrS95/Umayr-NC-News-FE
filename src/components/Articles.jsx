@@ -8,6 +8,8 @@ import {Link} from '@reach/router'
 class Articles extends Component {
 	state = {
 		articles: [],
+		sort_by: '',
+		order: 'asc',
 		isLoading: true
 	};
 
@@ -29,11 +31,31 @@ class Articles extends Component {
 		return api.fetchAllArticles(topic);
 	}
 
+	sortArticles (event) {
+		console.log(this.props);
+		console.log(event);	
+	}
+
+	/**
+	 * *if asc or desc is selected that button is highlighted
+	 */
+
 	render () {
 		return (
-      <>
+			<>
       {this.state.isLoading && <IsLoading />}
-      {!this.state.isLoading && 
+			{!this.state.isLoading && 
+			<div>
+				<form>
+					<label htmlFor="nav-sort">Sort-By: </label>
+						<select name="nav-sort" id="nav-sortby">
+							<option value="created_at" >Date</option>
+							<option value="comment_count">Comment Count</option>
+							<option value="votes">Votes</option>
+						</select>
+					<button id='sort-button' onClick={(event) => {this.sortArticles(event)}}>asc</button>
+					<button id='sort-button'>desc</button>
+				</form>
 			<div className="Articles">
 				<ul>
 					{this.state.articles.map((article) => {
@@ -44,8 +66,10 @@ class Articles extends Component {
 						);
 					})}
 				</ul>
-			</div>}
-      </>
+			</div>
+			</div>
+			}
+		</>
 		);
 	}
 }

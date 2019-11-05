@@ -11,4 +11,9 @@ describe('dateFormat', () => {
 	it('returns a formatted date string', () => {
 		expect(dateFormat(date)).toBe('22 Nov 2017');
 	});
+	it('doesnt mutate the data', () => {
+		const dateClone = '2017-11-22T12:36:03.389Z';
+		dateFormat(date);
+		expect(date).toBe(dateClone);
+	});
 });

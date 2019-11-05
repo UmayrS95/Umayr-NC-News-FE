@@ -12,7 +12,7 @@ function App () {
 		<div className="App">
 			<Header />
 			<Navbar />
-			<Router>
+			<Router primary={false}>
 				<Articles path="/" />
 				<Articles path="/:topic_slug" />
 				<SingleArticle path="/articles/:article_id" />

@@ -6,4 +6,12 @@
 	.SingleArticle p {
 		text-align: left;
 	}
+
+	.SingleArticle ul li {
+		list-style-type: none;
+	}
+
+	.SingleArticle ul {
+		padding: 8px;
+	}
 }

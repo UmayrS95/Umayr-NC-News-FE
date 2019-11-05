@@ -1,0 +1,8 @@
+@media (max-width: 500px) {
+	.Comment {
+		border: 1px solid red;
+		border-radius: 5px;
+		padding: 8px;
+		margin: 16px;
+	}
+}

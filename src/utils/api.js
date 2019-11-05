@@ -12,3 +12,9 @@ export const fetchSingleArticle = (article_id) => {
 		return data.article;
 	});
 };
+
+export const fetchArticleComments = (article_id) => {
+	return axios.get(baseURL + '/articles/' + article_id + '/comments').then(({ data }) => {
+		return data.comments;
+	});
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import '../css/Navbar.css';
 
 const Navbar = () => {
 	return (
@@ -7,11 +8,17 @@ const Navbar = () => {
 			<nav>
 				<ul>
 					<li>
-						<Link to="/">Home</Link>
+						<Link to="/">All</Link>
 					</li>
-					<li>Cooking</li>
-					<li>Football</li>
-					<li>Coding</li>
+					<li>
+						<Link to="/cooking">Cooking</Link>
+					</li>
+					<li>
+						<Link to="/football">Football</Link>
+					</li>
+					<li>
+						<Link to="/coding">Coding</Link>
+					</li>
 				</ul>
 			</nav>
 		</div>

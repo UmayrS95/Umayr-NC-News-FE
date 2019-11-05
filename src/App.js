@@ -14,6 +14,7 @@ function App () {
 			<Navbar />
 			<Router>
 				<Articles path="/" />
+				<Articles path="/:topic_slug" />
 				<SingleArticle path="/articles/:article_id" />
 			</Router>
 			<Footer />

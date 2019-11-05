@@ -1,0 +1,20 @@
+@media (max-width: 500px) {
+	.Navbar {
+		grid-area: Navbar;
+		border: solid 1px green;
+	}
+
+	.Navbar ul {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		margin: 0;
+		padding: 0;
+	}
+
+	.Navbar ul li {
+		list-style-type: none;
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+}

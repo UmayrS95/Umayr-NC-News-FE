@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import ArticleCard from './ArticleCard';
 import IsLoading from './IsLoading'
+import '../css/Articles.css'
+import {Link} from '@reach/router'
 
 class Articles extends Component {
 	state = {
@@ -15,8 +17,16 @@ class Articles extends Component {
 		});
 	}
 
-	getArticles () {
-		return api.fetchAllArticles();
+	componentDidUpdate (prevProps, prevState) {
+		if (this.props.topic_slug !== prevProps.topic_slug) {
+			this.getArticles(this.props.topic_slug).then(articles => {
+				this.setState({articles, isLoading: false})
+			})
+		}
+	}
+
+	getArticles (topic) {
+		return api.fetchAllArticles(topic);
 	}
 
 	render () {
@@ -29,7 +39,7 @@ class Articles extends Component {
 					{this.state.articles.map((article) => {
 						return (
 							<li key={article.article_id}>
-								<ArticleCard articleInfo={article} />
+								<Link to={`/articles/${article.article_id}`}><ArticleCard articleInfo={article} /></Link>
 							</li>
 						);
 					})}

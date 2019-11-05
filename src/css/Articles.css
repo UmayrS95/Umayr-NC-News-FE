@@ -1,0 +1,16 @@
+@media (max-width: 500px) {
+	.Articles {
+		grid-area: Articles;
+		border: solid 1px red;
+	}
+
+	.Articles ul li {
+		list-style-type: none;
+		border: solid 1px blue;
+		margin: 8px;
+	}
+
+	.Articles ul {
+		padding: 8px;
+	}
+}

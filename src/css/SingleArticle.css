@@ -1,0 +1,9 @@
+@media (max-width: 500px) {
+	.SingleArticle {
+		margin: 16px;
+	}
+
+	.SingleArticle p {
+		text-align: left;
+	}
+}

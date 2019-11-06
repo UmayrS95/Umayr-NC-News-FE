@@ -8,8 +8,7 @@ import {Link} from '@reach/router'
 class Articles extends Component {
 	state = {
 		articles: [],
-		sort_by: '',
-		order: 'asc',
+		sort_by: 'created_at',
 		isLoading: true
 	};
 
@@ -27,15 +26,27 @@ class Articles extends Component {
 		}
 	}
 
-	getArticles (topic) {
-		return api.fetchAllArticles(topic);
+	getArticles (topic, sort_by, order) {
+		return api.fetchAllArticles(topic, sort_by, order);
 	}
 
-	sortArticles (event) {
-		console.log(this.props);
-		console.log(event);	
+	sortArticleTopic (event) {
+		const sort_by = event.target.value;
+		this.setState(currentState => {
+			return {...currentState, sort_by}
+		})
 	}
-
+	
+	sortArticleOrder (event) {
+		event.preventDefault()
+		const order = event.target.value;
+		this.getArticles(this.props.topic_slug, this.state.sort_by, order).then(articles => {
+			this.setState(currentState => {
+				return {...currentState, articles}
+			})
+		})
+	}
+	
 	/**
 	 * *if asc or desc is selected that button is highlighted
 	 */
@@ -48,13 +59,13 @@ class Articles extends Component {
 			<div>
 				<form>
 					<label htmlFor="nav-sort">Sort-By: </label>
-						<select name="nav-sort" id="nav-sortby">
+						<select name="nav-sort" id="nav-sortby" onChange={(event) => {this.sortArticleTopic(event)}}>
 							<option value="created_at" >Date</option>
 							<option value="comment_count">Comment Count</option>
 							<option value="votes">Votes</option>
 						</select>
-					<button id='sort-button' onClick={(event) => {this.sortArticles(event)}}>asc</button>
-					<button id='sort-button'>desc</button>
+					<button id='sort-button' value="asc" onClick={(event) => {this.sortArticleOrder(event)}}>asc</button>
+					<button id='sort-button' value="desc" onClick={(event) => {this.sortArticleOrder(event)}}>desc</button>
 				</form>
 			<div className="Articles">
 				<ul>

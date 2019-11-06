@@ -1,8 +1,8 @@
 const axios = require('axios');
 const baseURL = 'https://umayrs-news.herokuapp.com/api';
 
-export const fetchAllArticles = (topic) => {
-	return axios.get(`${baseURL}/articles`, { params: { topic } }).then(({ data }) => {
+export const fetchAllArticles = (topic, sort_by, order) => {
+	return axios.get(`${baseURL}/articles`, { params: { topic, sort_by, order } }).then(({ data }) => {
 		return data.articles;
 	});
 };

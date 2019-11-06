@@ -10,6 +10,7 @@ const ArticleCard = ({ articleInfo }) => {
 			<h5>topic: {articleInfo.topic}</h5>
 			<h5>date written: {date}</h5>
 			<h5>votes: {articleInfo.votes}</h5>
+			<h5>comments: {articleInfo.comment_count}</h5>
 		</div>
 	);
 };

@@ -18,3 +18,13 @@ export const fetchArticleComments = (article_id) => {
 		return data.comments;
 	});
 };
+
+export const postComment = (article_id, username, body) => {
+	return axios.post(`${baseURL}/articles/${article_id}/comments`, { username, body }).then(({ data }) => {
+		return data.comment;
+	});
+};
+
+export const deleteComment = (comment_id) => {
+	return axios.delete(`${baseURL}/comments/${comment_id}`);
+};

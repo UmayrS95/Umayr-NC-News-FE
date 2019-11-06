@@ -3,6 +3,7 @@ import * as api from '../utils/api';
 import '../css/SingleArticle.css';
 import { dateFormat } from '../utils/utils';
 import Comment from '../components/Comment';
+import '../css/ArticleCommentBox.css';
 
 class SingleArticle extends Component {
 	state = {
@@ -14,6 +15,7 @@ class SingleArticle extends Component {
 		created_at: '',
 		comment_count: '',
 		comments: [],
+		commentBox: '',
 		isLoading: true
 	};
 
@@ -39,6 +41,34 @@ class SingleArticle extends Component {
 		return api.fetchArticleComments(article_id);
 	}
 
+	handleCommentBoxChange (event) {
+		const text = event.target.value;
+		this.setState((currentState) => {
+			return { ...currentState, commentBox: text };
+		});
+	}
+
+	handlePostComment (article_id, username, body) {
+		return api.postComment(article_id, username, body).then((comment) => {
+			this.setState((currentState) => {
+				return { ...currentState, comments: [ comment, ...currentState.comments ], commentBox: '' };
+			});
+		});
+	}
+
+	handleDeleteComment = (comment_id, article_id) => {
+		api
+			.deleteComment(comment_id)
+			.then(() => {
+				return api.fetchArticleComments(article_id);
+			})
+			.then((comments) => {
+				this.setState((currentState) => {
+					return { ...currentState, comments };
+				});
+			});
+	};
+
 	render () {
 		const date = dateFormat(this.state.created_at);
 		return (
@@ -50,12 +80,34 @@ class SingleArticle extends Component {
 					<p>{this.state.body}</p>
 				</div>
 				<h4 id="comment-title">Comments</h4>
+				<textarea
+					className="ArticleCommentBox"
+					placeholder="Your comment here..."
+					name="commentBox"
+					onChange={(event) => {
+						this.handleCommentBoxChange(event);
+					}}
+				/>
+				<button
+					id="post-comment-button"
+					disabled={this.state.commentBox === ''}
+					onClick={() => {
+						this.handlePostComment(this.props.article_id, this.props.username, this.state.commentBox);
+					}}
+				>
+					Post Comment
+				</button>
 				<ul>
 					{this.state.comments.length > 0 &&
 						this.state.comments.map((comment) => {
 							return (
 								<li key={comment.comment_id}>
-									<Comment commentInfo={comment} />
+									<Comment
+										commentInfo={comment}
+										handleDeleteComment={this.handleDeleteComment}
+										username={this.props.username}
+										articleId={this.props.article_id}
+									/>
 								</li>
 							);
 						})}

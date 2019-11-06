@@ -1,0 +1,25 @@
+@media (max-width: 500px) {
+	.Header {
+		display: grid;
+		grid-template-areas: 'H1' 'User';
+		grid-area: Header;
+		border: 1px solid red;
+		text-align: left;
+	}
+
+	.Header h1 {
+		grid-area: H1;
+		margin-left: 8px;
+		margin-top: 8px;
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.Header p {
+		grid-area: User;
+		margin: 8px;
+		padding: 0;
+		text-align: left;
+		font-weight: 500;
+	}
+}

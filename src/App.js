@@ -7,19 +7,24 @@ import Articles from './components/Articles';
 import SingleArticle from './components/SingleArticle';
 import Navbar from './components/Navbar';
 
-function App () {
-	return (
-		<div className="App">
-			<Header />
-			<Navbar />
-			<Router primary={false}>
-				<Articles path="/" />
-				<Articles path="/:topic_slug" />
-				<SingleArticle path="/articles/:article_id" />
-			</Router>
-			<Footer />
-		</div>
-	);
+class App extends React.Component {
+	state = {
+		userCredName: 'tickle122'
+	};
+	render () {
+		return (
+			<div className="App">
+				<Header username={this.state.userCredName} />
+				<Navbar />
+				<Router primary={false}>
+					<Articles path="/" username={this.state.userCredName} />
+					<Articles path="/:topic_slug" username={this.state.userCredName} />
+					<SingleArticle path="/articles/:article_id" username={this.state.userCredName} />
+				</Router>
+				<Footer />
+			</div>
+		);
+	}
 }
 
 export default App;

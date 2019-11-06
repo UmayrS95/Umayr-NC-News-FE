@@ -27,14 +27,4 @@
 		grid-template-areas: 'Header' 'Navbar' 'Articles' 'SingleArticle';
 		grid-gap: 0.7rem;
 	}
-
-	.Header {
-		grid-area: Header;
-		border: 1px solid red;
-		text-align: left;
-	}
-
-	.Header h1 {
-		margin-left: 8px;
-	}
 }

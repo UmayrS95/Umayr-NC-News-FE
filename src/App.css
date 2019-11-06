@@ -24,7 +24,7 @@
 @media (max-width: 500px) {
 	.App {
 		display: grid;
-		grid-template-areas: 'Header' 'Navbar' 'Articles' 'SingleArticle';
-		grid-gap: 0.7rem;
+		grid-template-areas: 'Header' 'Navbar' 'Articles' 'SingleArticle' 'Footer';
+		gap: 0.7rem;
 	}
 }

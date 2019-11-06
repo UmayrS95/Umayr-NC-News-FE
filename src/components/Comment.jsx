@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Comment.css';
 import { dateFormat } from '../utils/utils';
+import Voter from './Voter';
 
 class Comment extends React.Component {
 	render () {
@@ -11,6 +12,7 @@ class Comment extends React.Component {
 				<h4>{commentInfo.author}</h4>
 				<p>{commentInfo.body}</p>
 				<p>{date}</p>
+				<Voter votes={commentInfo.votes} type="comments" id={commentInfo.comment_id} />
 				{username === commentInfo.author && (
 					<button
 						onClick={() => {

@@ -2,6 +2,8 @@ const axios = require('axios');
 const baseURL = 'https://umayrs-news.herokuapp.com/api';
 
 export const fetchAllArticles = (topic, sort_by, order) => {
+	console.log(topic);
+
 	return axios.get(`${baseURL}/articles`, { params: { topic, sort_by, order } }).then(({ data }) => {
 		return data.articles;
 	});
@@ -27,4 +29,10 @@ export const postComment = (article_id, username, body) => {
 
 export const deleteComment = (comment_id) => {
 	return axios.delete(`${baseURL}/comments/${comment_id}`);
+};
+
+export const patchVotes = (id, type, votes) => {
+	return axios.patch(`${baseURL}/${type}/${id}`, { inc_votes: votes }).then(({ data }) => {
+		return data.article;
+	});
 };

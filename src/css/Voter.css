@@ -1,0 +1,33 @@
+@media (max-width: 500px) {
+	.Voter {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-top: 16px;
+		margin-bottom: 16px;
+	}
+
+	.Voter #down-vote {
+		padding: 8px;
+		margin: 0;
+		justify-self: left;
+	}
+
+	.Voter #up-vote {
+		padding: 8px;
+		margin: 0;
+		justify-self: right;
+	}
+
+	.Voter p {
+		margin-left: 32px;
+		margin-right: 32px;
+		margin-top: 8px;
+		justify-self: center;
+	}
+
+	.Voter button {
+		background: lightgray;
+		border-radius: 6px;
+	}
+}

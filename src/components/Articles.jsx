@@ -4,17 +4,24 @@ import ArticleCard from './ArticleCard';
 import IsLoading from './IsLoading'
 import '../css/Articles.css'
 import {Link} from '@reach/router'
+import HandleError from './HandleError';
 
 class Articles extends Component {
 	state = {
 		articles: [],
 		sort_by: 'created_at',
-		isLoading: true
+		isLoading: true,
+		err: false,
+		errMsg: ''
 	};
 
 	componentDidMount () {
-		this.getArticles().then((articles) => {
+		this.getArticles(this.props.topic_slug)
+		.then((articles) => {
 			this.setState({ articles, isLoading: false });
+		})
+		.catch((err) => {
+			this.setState({errMsg: err.response.data.msg, err: true})
 		});
 	}
 
@@ -47,14 +54,11 @@ class Articles extends Component {
 		})
 	}
 	
-	/**
-	 * *if asc or desc is selected that button is highlighted
-	 */
-
 	render () {
 		return (
 			<>
-      {this.state.isLoading && <IsLoading />}
+			{this.state.err && <HandleError msg={this.state.errMsg}/>}
+			{this.state.isLoading && !this.state.err && <IsLoading />}
 			{!this.state.isLoading && 
 			<div>
 				<form>

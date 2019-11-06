@@ -4,6 +4,9 @@ import '../css/SingleArticle.css';
 import { dateFormat } from '../utils/utils';
 import Comment from '../components/Comment';
 import '../css/ArticleCommentBox.css';
+import Voter from './Voter';
+import IsLoading from './IsLoading'
+import HandleError from './HandleError';
 
 class SingleArticle extends Component {
 	state = {
@@ -16,7 +19,9 @@ class SingleArticle extends Component {
 		comment_count: '',
 		comments: [],
 		commentBox: '',
-		isLoading: true
+		isLoading: true,
+		err: false,
+		errMsg: ''
 	};
 
 	componentDidMount () {
@@ -30,31 +35,34 @@ class SingleArticle extends Component {
 						return { ...currentState, comments };
 					});
 				});
+			})
+			.catch(err => {
+				this.setState({err: true, errMsg: err.response.data.msg})
 			});
 	}
 
-	getSingleArticle (article_id) {
+	getSingleArticle = (article_id) => {
 		return api.fetchSingleArticle(article_id);
-	}
+	};
 
-	getArticleComments (article_id) {
+	getArticleComments = (article_id) => {
 		return api.fetchArticleComments(article_id);
-	}
+	};
 
-	handleCommentBoxChange (event) {
+	handleCommentBoxChange = (event) => {
 		const text = event.target.value;
 		this.setState((currentState) => {
 			return { ...currentState, commentBox: text };
 		});
-	}
+	};
 
-	handlePostComment (article_id, username, body) {
+	handlePostComment = (article_id, username, body) => {
 		return api.postComment(article_id, username, body).then((comment) => {
 			this.setState((currentState) => {
 				return { ...currentState, comments: [ comment, ...currentState.comments ], commentBox: '' };
 			});
 		});
-	}
+	};
 
 	handleDeleteComment = (comment_id, article_id) => {
 		api
@@ -72,6 +80,10 @@ class SingleArticle extends Component {
 	render () {
 		const date = dateFormat(this.state.created_at);
 		return (
+			<>
+			{this.state.err && <HandleError msg={this.state.errMsg}/>}
+			{this.state.isLoading && !this.state.err && <IsLoading />}
+			{!this.state.isLoading && 
 			<div className="SingleArticle">
 				<div>
 					<h1>{this.state.title}</h1>
@@ -79,6 +91,7 @@ class SingleArticle extends Component {
 					<h4>Posted: {date}</h4>
 					<p>{this.state.body}</p>
 				</div>
+				<Voter votes={this.state.votes} id={this.props.article_id} type="articles" />
 				<h4 id="comment-title">Comments</h4>
 				<textarea
 					className="ArticleCommentBox"
@@ -112,7 +125,8 @@ class SingleArticle extends Component {
 							);
 						})}
 				</ul>
-			</div>
+			</div>}
+			</>
 		);
 	}
 }

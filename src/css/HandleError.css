@@ -1,0 +1,5 @@
+@media (max-width: 500px) {
+	.HandleError h2 {
+		height: 65vh;
+	}
+}

@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Articles from './components/Articles';
 import SingleArticle from './components/SingleArticle';
 import Navbar from './components/Navbar';
+import HandleError from './components/HandleError';
 
 class App extends React.Component {
 	state = {
@@ -17,6 +18,7 @@ class App extends React.Component {
 				<Header username={this.state.userCredName} />
 				<Navbar />
 				<Router primary={false}>
+					<HandleError default msg="Cannot find what you are looking for!" />
 					<Articles path="/" username={this.state.userCredName} />
 					<Articles path="/:topic_slug" username={this.state.userCredName} />
 					<SingleArticle path="/articles/:article_id" username={this.state.userCredName} />

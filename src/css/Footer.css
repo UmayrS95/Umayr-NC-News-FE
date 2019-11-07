@@ -1,3 +1,17 @@
+.Footer {
+	grid-area: Footer;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background: #4e6165;
+}
+
+.Footer p {
+	color: whitesmoke;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
 @media (max-width: 500px) {
 	.Footer {
 		grid-area: Footer;

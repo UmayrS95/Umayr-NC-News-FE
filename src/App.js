@@ -17,9 +17,10 @@ class App extends React.Component {
 			<div className="App">
 				<Header username={this.state.userCredName} />
 				<Navbar />
-				<Router primary={false}>
+				<Router primary={false} className="Router">
 					<HandleError default msg="Cannot find what you are looking for!" />
 					<Articles path="/" username={this.state.userCredName} />
+					<Articles path="/articles" username={this.state.userCredName} />
 					<Articles path="/:topic_slug" username={this.state.userCredName} />
 					<SingleArticle path="/articles/:article_id" username={this.state.userCredName} />
 				</Router>

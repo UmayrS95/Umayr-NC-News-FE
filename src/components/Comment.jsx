@@ -15,6 +15,7 @@ class Comment extends React.Component {
 				<Voter votes={commentInfo.votes} type="comments" id={commentInfo.comment_id} />
 				{username === commentInfo.author && (
 					<button
+						id="delete-button"
 						onClick={() => {
 							this.props.handleDeleteComment(commentInfo.comment_id, this.props.articleId);
 						}}

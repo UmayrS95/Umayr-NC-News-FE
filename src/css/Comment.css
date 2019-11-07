@@ -1,6 +1,26 @@
+.Comment {
+	border-radius: 5px;
+	border: 1px solid grey;
+	padding: 8px;
+	margin: 16px;
+}
+
+#delete-button {
+	margin-top: 8px;
+	border-radius: 6px;
+	align-self: left;
+	width: 30%;
+	background: lightgray;
+}
+
+.Comment h4 {
+	font-size: 16px;
+	text-align: left;
+	margin-top: 0;
+}
+
 @media (max-width: 500px) {
 	.Comment {
-		border: 1px solid red;
 		border-radius: 5px;
 		padding: 8px;
 		margin: 16px;

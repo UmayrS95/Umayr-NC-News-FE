@@ -4,7 +4,7 @@ import '../css/HandleError.css';
 const HandleError = ({ msg }) => {
 	return (
 		<div className="HandleError">
-			<h2>{msg}</h2>
+			<h2> Sorry, {msg}</h2>
 		</div>
 	);
 };

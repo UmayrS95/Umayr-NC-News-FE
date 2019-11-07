@@ -1,5 +1,11 @@
 .App {
-	text-align: center;
+	display: grid;
+	grid-template-areas: 'Header Header' 'Navbar Navbar' 'Articles Articles' 'SingleArticle SingleArticle' 'Footer Footer';
+	background: #f4f3f3;
+}
+
+.App a:visited {
+	color: white;
 }
 
 .App-logo {
@@ -19,6 +25,10 @@
 
 .App-link {
 	color: #09d3ac;
+}
+
+.App .Router {
+	width: 100vw;
 }
 
 @media (max-width: 500px) {

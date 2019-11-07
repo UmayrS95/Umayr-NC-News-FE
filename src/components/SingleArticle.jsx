@@ -87,9 +87,9 @@ class SingleArticle extends Component {
 			<div className="SingleArticle">
 				<div>
 					<h1>{this.state.title}</h1>
-					<h4>Written by: {this.state.author}</h4>
-					<h4>Posted: {date}</h4>
-					<p>{this.state.body}</p>
+					<h4>Written by {this.state.author}</h4>
+					<p className="text-body">{this.state.body}</p>
+					<p id="date">{date}</p>
 				</div>
 				<Voter votes={this.state.votes} id={this.props.article_id} type="articles" />
 				<h4 id="comment-title">Comments</h4>

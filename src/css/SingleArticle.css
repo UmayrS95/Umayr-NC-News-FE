@@ -1,9 +1,43 @@
+.SingleArticle {
+	display: flex;
+	flex-direction: column;
+	margin: 16px;
+	margin-left: 32px;
+	margin-right: 32px;
+}
+
+.SingleArticle div h1 {
+	margin-top: 8px;
+	font-family: 'Prata', Helvetica;
+	text-align: center;
+}
+
+p {
+	font-family: 'Prata', Helvetica;
+}
+
+.SingleArticle ul li {
+	list-style-type: none;
+}
+
+.SingleArticle #post-comment-button {
+	margin-top: 8px;
+	align-self: left;
+	width: 30%;
+	background: lightgray;
+}
+
+.ArticleCommentBox {
+	width: 50%;
+	height: 100px;
+	font-size: 14px;
+}
+
 @media (max-width: 500px) {
 	.SingleArticle {
 		display: flex;
 		flex-direction: column;
 		margin: 16px;
-		border: 1px solid purple;
 	}
 
 	.SingleArticle div h1 {
@@ -12,7 +46,6 @@
 
 	.SingleArticle #comment-title {
 		text-align: left;
-		border: 1px solid cyan;
 		margin-bottom: 0;
 		margin-top: 0;
 	}
@@ -29,7 +62,6 @@
 
 	.SingleArticle ul {
 		padding: 8px;
-		border: 1px solid brown;
 		margin-top: 0;
 	}
 

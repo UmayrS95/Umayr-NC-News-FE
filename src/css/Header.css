@@ -1,10 +1,41 @@
+.Header {
+	display: grid;
+	grid-template-areas: 'H1' 'User';
+	grid-area: Header;
+	/* border: 1px solid red; */
+	text-align: center;
+	background: #4e6165;
+}
+
+.Header p {
+	grid-area: User;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 16px;
+	padding: 0;
+	text-align: left;
+	font-family: 'Hind Vadodara', Helvetica;
+	color: whitesmoke;
+}
+
+.Header h1 {
+	grid-area: H1;
+	margin-left: 8px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	text-align: center;
+	font-family: 'Prata', Helvetica;
+	color: whitesmoke;
+}
+
 @media (max-width: 500px) {
 	.Header {
 		display: grid;
 		grid-template-areas: 'H1' 'User';
 		grid-area: Header;
-		border: 1px solid red;
 		text-align: left;
+		background: #4e6165;
+		margin-bottom: 0;
 	}
 
 	.Header h1 {
@@ -13,13 +44,15 @@
 		margin-top: 8px;
 		margin-bottom: 0;
 		text-align: center;
+		font-family: 'Prata', Helvetica;
+		color: whitesmoke;
 	}
 
 	.Header p {
 		grid-area: User;
-		margin: 8px;
+		margin: 5px;
 		padding: 0;
 		text-align: left;
-		font-weight: 500;
+		font-family: 'Hind Vadodara', Helvetica;
 	}
 }

@@ -1,5 +1,13 @@
+.HandleError h2 {
+	height: 65vh;
+	font-family: 'Prata', Helvetica;
+	font-size: 40px;
+	text-align: center;
+}
+
 @media (max-width: 500px) {
 	.HandleError h2 {
 		height: 65vh;
+		text-align: center;
 	}
 }

@@ -29,6 +29,7 @@
 .Navbar a {
 	text-decoration: none;
 	font-family: 'Prata', Helvetica;
+	color: white;
 }
 
 @media (max-width: 500px) {

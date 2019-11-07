@@ -14,7 +14,6 @@
 
 .Articles ul li {
 	list-style-type: none;
-	/* border: solid 1px blue; */
 	margin: 20px;
 	background: white;
 	border-radius: 7px;
@@ -65,7 +64,6 @@ label {
 
 	.Articles ul li {
 		list-style-type: none;
-		/* border: solid 1px blue; */
 		border-radius: 7px;
 		margin: 8px;
 		background: whitesmoke;
@@ -74,6 +72,11 @@ label {
 
 	.Articles ul {
 		padding: 8px;
+	}
+
+	.container {
+		margin: auto;
+		width: 80%;
 	}
 
 	#nav-sortby {

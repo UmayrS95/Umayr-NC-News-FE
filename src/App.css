@@ -27,7 +27,7 @@
 	color: #09d3ac;
 }
 
-.App .Router {
+.container {
 	width: 100vw;
 }
 
@@ -36,5 +36,6 @@
 		display: grid;
 		grid-template-areas: 'Header' 'Navbar' 'Articles' 'SingleArticle' 'Footer';
 		gap: 0.7rem;
+		background: #f4f3f3;
 	}
 }

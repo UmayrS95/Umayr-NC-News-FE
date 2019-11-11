@@ -28,7 +28,7 @@ class Articles extends Component {
 	componentDidUpdate (prevProps, prevState) {
 		if (this.props.topic_slug !== prevProps.topic_slug) {
 			this.getArticles(this.props.topic_slug).then((articles) => {
-				this.setState({ articles, isLoading: false });
+				this.setState({ articles, isLoading: false, err: false });
 			});
 		}
 	}

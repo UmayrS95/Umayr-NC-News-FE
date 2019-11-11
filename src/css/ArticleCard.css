@@ -18,10 +18,20 @@
 	margin-bottom: 16px;
 }
 
+.ArticleCard #author {
+	width: 80%;
+	margin-bottom: 16px;
+}
+
 .ArticleCard h5 {
 	margin: 8px;
 	padding: 0;
 	font-family: 'Prata', Helvetica;
+}
+
+.ArticleCardInfo #topic-type {
+	justify-self: flex-start;
+	color: gray;
 }
 
 .ArticleCardInfo {
@@ -29,6 +39,13 @@
 	flex-direction: row;
 	justify-content: space-evenly;
 	width: 80%;
+}
+
+img {
+	padding-right: 5px;
+	padding-bottom: 0;
+	height: 16px;
+	width: 16px;
 }
 
 @media (max-width: 440px) {

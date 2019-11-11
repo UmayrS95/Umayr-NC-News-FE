@@ -97,6 +97,7 @@ class SingleArticle extends Component {
 					className="ArticleCommentBox"
 					placeholder="Your comment here..."
 					name="commentBox"
+					value={this.state.commentBox}
 					onChange={(event) => {
 						this.handleCommentBoxChange(event);
 					}}

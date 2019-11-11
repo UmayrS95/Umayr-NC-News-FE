@@ -1,6 +1,6 @@
 .App {
 	display: grid;
-	grid-template-areas: 'Header Header' 'Navbar Navbar' 'Articles Articles' 'SingleArticle SingleArticle' 'Footer Footer';
+	grid-template-areas: 'Header' 'Navbar' 'Articles' 'SingleArticle' 'Footer';
 	background: #f4f3f3;
 }
 

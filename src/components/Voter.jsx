@@ -24,7 +24,7 @@ class Voter extends Component {
 				>
 					Down-vote
 				</button>
-				<p>Votes: {this.props.votes + this.state.clickVote} </p>
+				<p>{this.props.votes + this.state.clickVote} </p>
 				<button
 					id="up-vote"
 					disabled={this.state.clickVote === 1}

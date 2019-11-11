@@ -1,6 +1,5 @@
 .Navbar {
 	grid-area: Navbar;
-	/* border: solid 1px green; */
 	background: #4e6165;
 	box-shadow: 0px 27px 26px 0px rgba(138, 131, 138, 0.74);
 	padding-bottom: 8px;
@@ -21,6 +20,8 @@
 	margin-top: 8px;
 	margin-left: 16px;
 	margin-right: 16px;
+	border-right: 1px solid grey;
+	width: 25%;
 	cursor: pointer;
 	font-size: 20px;
 	color: whitesmoke;
@@ -36,5 +37,9 @@
 	.Navbar {
 		grid-area: Navbar;
 		margin-top: -15px;
+	}
+
+	.Navbar ul li {
+		border: none;
 	}
 }
